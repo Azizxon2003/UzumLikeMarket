@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>Uzum Market</title>
+    <link rel="stylesheet" href="style.css" />
+    <style></style>
+  </head>
+  <body>
+    <header>
+      <h1>Uzum/Some Market</h1>
+      <div class="search-bar">
+        <input
+          type="text"
+          placeholder="Mahsulot va toifalarni qidirish"
+          id="searchInput"
+        />
+      </div>
+    </header>
+    <div class="container" id="itemListContainer">
+      <div class="grid" id="itemGrid"></div>
+      <div class="pagination">
+        <button id="prevButton" onclick="prevPage()" disabled>Avvalgi</button>
+        <button id="nextButton" onclick="nextPage()">Keyingisi</button>
+      </div>
+    </div>
+
+    <!-- Pop-up  -->
+    <div class="modal" id="modal">
+      <div class="modal-content" id="modalContent">
+        <button class="close-button" onclick="closeModal()">×</button>
+        <h2 id="modalTitle">Mahsulot nomi</h2>
+        <p id="modalPrice">0.00 so'm</p>
+        <button onclick="addToCartFromModal()">Savatchaga qo'shish</button>
+      </div>
+    </div>
+
+    <!-- Mahsulotlar -->
+    <div class="cart-screen" id="cartScreen">
+      <h2>Savatcha</h2>
+      <div id="cartItemsList">
+        <!-- Savatdagi Mahsulotlar -->
+      </div>
+    </div>
+
+    <div class="added-to-cart" id="addedToCartMessage">
+      Maxsulot savatga qo'shildi
+    </div>
+
+    <!-- Menu Qatorlar -->
+    <div class="bottom-nav">
+      <div onclick="goToMainMenu()">
+        <i class="fas fa-home"></i>
+      </div>
+      <div onclick="goToCart()" id="cartIcon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-item-count" id="cartItemCount">0</span>
+      </div>
+      <div onclick="goToSearch()">
+        <i class="fas fa-search"></i>
+      </div>
+      <div onclick="goToPersonal()">
+        <i class="fas fa-user-alt"></i>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

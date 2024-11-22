@@ -97,7 +97,7 @@ header h1 {
   cursor: not-allowed;
 }
 
-/* Pop-up modal styles */
+/* Modals */
 .modal {
   display: none;
   position: fixed;
@@ -150,7 +150,7 @@ header h1 {
   color: #ff0000;
 }
 
-/* Bottom navigation bar styles */
+/* Pasgi MEnu */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -194,7 +194,7 @@ header h1 {
 /* Savatchaga qo'shildi */
 .added-to-cart {
   position: fixed;
-  bottom: 80px; /* Adjusted to be above */
+  bottom: 80px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #8e21a7;
@@ -209,7 +209,7 @@ header h1 {
 
 /* Savatchada bor maxsulot */
 .item.added {
-  border: 2px solid green; /* Change border color to green */
+  border: 2px solid green;
 }
 
 #cartIcon {

@@ -9,7 +9,6 @@ let cart = [];
 let currentPage = 1;
 const itemsPerPage = 9;
 
-// Render items on page
 function renderItems() {
   const itemGrid = document.getElementById("itemGrid");
   const searchInput = document
@@ -50,7 +49,7 @@ function renderItems() {
   updatePagination(filteredItems.length);
 }
 
-// Open modal for a selected item
+// modalni ochish
 function openModal(itemId) {
   const item = items.find((i) => i.id === itemId);
   document.getElementById("modalTitle").textContent = item.name;
@@ -59,18 +58,18 @@ function openModal(itemId) {
   document.getElementById("modal").style.display = "flex";
 }
 
-// Close the modal
+// modalni yopish
 function closeModal() {
   document.getElementById("modal").style.display = "none";
 }
 
-// Add item to cart
+// savatchaga mahsulot qo'shilishi
 function addToCart(itemId) {
   const item = items.find((i) => i.id === itemId);
   const existingItemIndex = cart.findIndex((i) => i.id === item.id);
   if (existingItemIndex === -1) {
     cart.push({ ...item, quantity: 1 });
-    document.querySelector(`#${itemId}`).classList.add("added"); // Change border color
+    document.querySelector(`#${itemId}`).classList.add("added");
   } else {
     cart[existingItemIndex].quantity++;
   }
@@ -78,7 +77,7 @@ function addToCart(itemId) {
   updateCartIcon();
 }
 
-// Show "Added to Cart" message
+// savatchaga qo'shildi
 function showAddedToCartMessage() {
   const message = document.getElementById("addedToCartMessage");
   message.style.display = "block";
@@ -90,7 +89,7 @@ function showAddedToCartMessage() {
   }, 1500);
 }
 
-// Add item to cart from modal
+// Modal orqali savatchaga qo'shish
 function addToCartFromModal() {
   const itemId = document
     .getElementById("modalContent")
@@ -99,12 +98,12 @@ function addToCartFromModal() {
   closeModal();
 }
 
-// Add item to cart from cart icon
+// savatcha icon orqali qo'shish
 function addToCartFromCartIcon(itemId) {
   addToCart(itemId);
 }
 
-// Update cart icon with item count
+// Savatdagi mahsulot sonlari
 function updateCartIcon() {
   const cartIcon = document.getElementById("cartIcon");
   const cartItemCount = document.getElementById("cartItemCount");
@@ -114,7 +113,7 @@ function updateCartIcon() {
   );
 }
 
-// Update pagination buttons
+// Papging knopkalari o'zgarishi
 function updatePagination(totalItems) {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   const prevButton = document.getElementById("prevButton");
@@ -123,8 +122,6 @@ function updatePagination(totalItems) {
   prevButton.disabled = currentPage === 1;
   nextButton.disabled = currentPage === totalPages;
 }
-
-// Pagination controls
 function nextPage() {
   currentPage++;
   renderItems();
@@ -135,14 +132,14 @@ function prevPage() {
   renderItems();
 }
 
-// Go to cart screen
+// Savatcha
 function goToCart() {
   document.getElementById("cartScreen").style.display = "block";
   document.getElementById("itemListContainer").style.display = "none";
   renderCart();
 }
 
-// Render cart items
+// Savatchani renderlash/yangilash
 function renderCart() {
   const Items = document.querySelector(".cart-item-count").textContent;
   const TotalPrice = Number(Items) * 50000;
@@ -164,14 +161,14 @@ function renderCart() {
 function removeFromCart(itemId) {
   const itemIndex = cart.findIndex((i) => i.id === itemId);
   if (itemIndex > -1) {
-    cart.splice(itemIndex, 1); // remove the item from the cart
-    renderCart(); // render the cart to reflect changes
-    updateCartIcon(); // update the cart icon border
-    document.querySelector(`#${itemId}`).classList.remove("added"); // border color remover
+    cart.splice(itemIndex, 1); // mahsulotni o'chirish
+    renderCart();
+    updateCartIcon();
+    document.querySelector(`#${itemId}`).classList.remove("added");
   }
 }
 
-// Main menu navigation
+// Main menu
 function goToMainMenu() {
   document.getElementById("cartScreen").style.display = "none";
   document.getElementById("itemListContainer").style.display = "block";
